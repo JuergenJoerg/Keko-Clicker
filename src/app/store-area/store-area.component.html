@@ -1,0 +1,12 @@
+<div class="storeArea">
+  <div class="storeHeading">
+    <h2>{{type}}</h2>
+  </div>
+  <div class="storeItems">
+    <app-store-item *ngFor="let item of items"
+                    [name]="item.name" [prize]="item.displayedPrize" [imgName]="item.imgName" [count]="item.count"
+                    [affordable]="item.affordable" [isShown]="item.isShown"
+                    (buyBtnClick)="buyItem($event)">
+    </app-store-item>
+  </div>
+</div>

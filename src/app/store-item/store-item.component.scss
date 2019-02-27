@@ -1,0 +1,90 @@
+.storeItem{
+  margin: 10px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgba(255,255,255, 0.6);
+  border-radius: 10px;
+}
+
+.item-enabled{
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.item-disabled{
+  opacity: 0.4;
+  transition: opacity 1s;
+}
+
+.item-shown {
+  opacity: 0.4;
+}
+
+.item-hidden {
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+.storeItemImg{
+  height: 75px;
+}
+
+.storeItemBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding-left: 10px;
+  width: calc(100% - 65px);
+}
+
+.storeItemName{
+  font-size: 25px;
+  font-family: 'Pacifico', cursive;
+}
+
+.storeItemCost{
+  font-size: 15px;
+  font-family: 'Pacifico', cursive;
+}
+
+.storeItemCount{
+  font-size: 40px;
+  font-family: 'Pacifico', cursive;
+  color: rgba(0,0,0, 0.4);
+  margin-right: 20px;
+}
+
+.buybtn {
+  background-color: DodgerBlue; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 5px 0px; /* Some padding */
+  font-size: 30px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.buybtn:hover{
+  background-color: RoyalBlue;
+}
+
+.btn-disabled{
+  background-color: gray; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 5px 0px; /* Some padding */
+  font-size: 30px; /* Set a font size */
+  cursor: default; /* Mouse pointer on hover */
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+.btn-disabled:hover {
+  background-color: gray;
+}
+
+

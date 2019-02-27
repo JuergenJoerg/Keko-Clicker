@@ -1,0 +1,23 @@
+<app-nav></app-nav>
+<div class="row gameArea">
+  <app-store-area class="col-sm" type="Store"
+                  [coins]="coins" [items]="storeItems"
+                  (buyItemOutput)="buyItemClick($event)">
+  </app-store-area>
+
+  <app-coin-area class="col-sm"
+                 [coins]="coins" [cps]="cps"
+                 (coinClickOutput)="coinClick()">
+  </app-coin-area>
+
+  <!--<app-store-area class="col-sm" type="Upgrades"
+                  [coins]="coins" [items]="upgradeItems"
+                  (coinOutput)="getCoins($event)" (buyItemOutput)="buyItemClick($event)">
+  </app-store-area> !-->
+
+  <app-upgrade-area class="col-sm"
+                  [coins]="coins" [items]="upgradeItems"
+                  (buyItemOutput)="buyItemClick($event)">
+  </app-upgrade-area>
+
+</div>

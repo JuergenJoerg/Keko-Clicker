@@ -1,0 +1,12 @@
+<div class="upgradeArea">
+  <div class="upgradeHeading">
+    <h2>Upgrades</h2>
+  </div>
+  <div class="upgradeItems">
+    <app-upgrade-item *ngFor="let item of items"
+                    [name]="item.name" [prize]="item.prize" [imgName]="item.imgName" [count]="item.count"
+                    [affordable]="item.affordable" [isShown]="item.isShown"
+                    (buyBtnClick)="buyItem($event)">
+    </app-upgrade-item>
+  </div>
+</div>

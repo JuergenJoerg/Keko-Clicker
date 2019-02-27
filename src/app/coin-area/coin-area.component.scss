@@ -1,0 +1,54 @@
+.coinArea{
+  text-align: center;
+}
+
+.coinHeading{
+  padding: 5px;
+  background-color: rgba(0,0,0,0.35);
+  color: #fff;
+  font-family: 'Pacifico', cursive;
+}
+
+.coinHeading h2{
+  margin: 0px;
+}
+
+.coinAndStrahlen{
+  position: relative;
+  top: 80px;
+}
+
+#coin{
+  transition: transform 50ms ease-in;
+}
+#coin:active{
+  transform: scale(0.85);
+}
+#coin:hover{
+  cursor: pointer;
+}
+
+#strahlen {
+  position: relative;
+  bottom: 300px;
+  z-index: -1;
+
+  -webkit-animation: rotation 10s infinite linear;
+}
+
+#strahlen2{
+  position: relative;
+  bottom: 700px;
+  z-index: -1;
+
+  -webkit-animation: rotation 10s infinite reverse;
+}
+
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}

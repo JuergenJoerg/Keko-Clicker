@@ -1,0 +1,21 @@
+<div class="coinArea">
+
+  <div class="coinHeading">
+    <h2 id="coinsAnzeige">{{coins | number}} Coins</h2>
+    <h5 id="cpsAnzeige">per second: {{cps | number}}</h5>
+  </div>
+
+  <div class="coinAndStrahlen">
+    <div class="coin">
+      <img src="/assets/coin.png" id="coin" (click)="onCoinClick()" style="width: 200px;">
+    </div>
+    <div id="strahlen">
+      <img src="/assets/strahlen.png" style="width: 400px;">
+    </div>
+    <div id="strahlen2">
+      <img src="/assets/strahlen.png" style="width: 400px;">
+    </div>
+  </div>
+
+</div>
+
