@@ -31,10 +31,10 @@ export class GameComponent implements OnInit {
    */
   buyItem(index: number, type: number) {
     if (type === 2) {
-      console.log(this.upgradeItems[index]);
       this.coins -= this.upgradeItems[index].prize;
       this.cps += this.storeItems[this.upgradeItems[index].upgradeFor].cps * this.storeItems[this.upgradeItems[index].upgradeFor].count;
       this.storeItems[this.upgradeItems[index].upgradeFor].cps *= 2;
+      this.storeItems[this.upgradeItems[index].upgradeFor].imgName = this.upgradeItems[index].imgName;
       this.upgradeItems.splice(index - this.storeItems.length, 1);
     } else {
       this.coins -= this.storeItems[index].displayedPrize;
