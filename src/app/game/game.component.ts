@@ -11,11 +11,10 @@ export class GameComponent implements OnInit {
   coins: number = 70;
 
   cpc: number = 1;
-  cps: number = 1;
+  cps: number = 100;
 
   storeItems = Items.storeItems;
   upgradeItems = Items.upgradeItems;
-  items: any;
 
   startDate = new Date();
   endDate = new Date();
@@ -25,10 +24,20 @@ export class GameComponent implements OnInit {
     this.coins += this.cpc;
   }
 
-  buyItem(index: number) {
-    if (index >= this.storeItems.length) {
+  /**
+   * does item purchase; removes coins, adds cps, makes storeItems more expensive,removes upgradeItems
+   * @param index
+   * @param type
+   */
+  buyItem(index: number, type: number) {
+    if (type === 2) {
+      console.log(this.upgradeItems[index]);
+      this.coins -= this.upgradeItems[index].prize;
+      this.cps += this.storeItems[this.upgradeItems[index].upgradeFor].cps * this.storeItems[this.upgradeItems[index].upgradeFor].count;
+      this.storeItems[this.upgradeItems[index].upgradeFor].cps *= 2;
       this.upgradeItems.splice(index - this.storeItems.length, 1);
     } else {
+      this.coins -= this.storeItems[index].displayedPrize;
       this.storeItems[index].count += 1;
       this.cps += this.storeItems[index].cps;
       this.storeItems[index].displayedPrize = Math.ceil(this.storeItems[index].prize * 1.15);
@@ -36,15 +45,23 @@ export class GameComponent implements OnInit {
     }
   }
 
+  /**
+   * calls buyItem function for either storeItems (type 1) or upgradeItems (type 2)
+   * @param itemName
+   */
   buyItemClick(itemName: string) {
     this.storeItems.forEach((item, index) => {
       if (item.name === itemName) {
         if (this.coins >= item.displayedPrize) {
-          this.coins -= item.displayedPrize;
+            this.buyItem(index, 1);
+        }
+      }
+    });
 
-          } else {
-            //this.upgradeItems[index - this.storeItems.length].count += 1;
-            this.upgradeItems.splice(index - this.storeItems.length, 1);
+    this.upgradeItems.forEach((item, index) => {
+      if (item.name === itemName) {
+        if (this.coins >= item.prize) {
+          this.buyItem(index, 2);
         }
       }
     });
