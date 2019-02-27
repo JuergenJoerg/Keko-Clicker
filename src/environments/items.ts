@@ -25,14 +25,16 @@ class UpgradeItem {
   prize: number;
   imgName: string;
   description: string;
+  upgradeFor: number;
   affordable: boolean;
   isShown: boolean;
 
-  constructor(name: string, prize: number, imgName: string, description: string, isShown?: boolean) {
+  constructor(name: string, prize: number, imgName: string, description: string, upgradeFor: number, isShown?: boolean) {
     this.name = name;
     this.prize = prize;
     this.imgName = imgName;
     this.description = description;
+    this.upgradeFor = upgradeFor;
     this.affordable = false;
     this.isShown = isShown && isShown || false;
   }
@@ -51,8 +53,8 @@ export class Items {
   ];
 
   static upgradeItems = [
-    new UpgradeItem('Gold Coja', 100, 'goldCoja', 'Coja x 2'),
-    new UpgradeItem('Gold Lio', 1000, 'goldLio', 'Lio x 2')
+    new UpgradeItem('Gold Coja', 100, 'goldCoja', 'Coja x 2', 0),
+    new UpgradeItem('Gold Lio', 1000, 'goldLio', 'Lio x 2', 1)
   ];
 
 }
