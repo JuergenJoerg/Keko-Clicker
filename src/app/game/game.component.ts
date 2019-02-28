@@ -11,10 +11,12 @@ export class GameComponent implements OnInit {
   coins: number = 70;
 
   cpc: number = 1;
-  cps: number = 100;
+  cps: number = 10000;
 
   storeItems = Items.storeItems;
   upgradeItems = Items.upgradeItems;
+
+  upgradeLevels: any = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   startDate = new Date();
   endDate = new Date();
@@ -35,7 +37,9 @@ export class GameComponent implements OnInit {
       this.cps += this.storeItems[this.upgradeItems[index].upgradeFor].cps * this.storeItems[this.upgradeItems[index].upgradeFor].count;
       this.storeItems[this.upgradeItems[index].upgradeFor].cps *= 2;
       this.storeItems[this.upgradeItems[index].upgradeFor].imgName = this.upgradeItems[index].imgName;
-      this.upgradeItems.splice(index - this.storeItems.length, 1);
+      this.storeItems[this.upgradeItems[index].upgradeFor].name = this.upgradeItems[index].newName;
+      this.upgradeLevels[this.upgradeItems[index].upgradeFor] += 1;
+      this.upgradeItems.splice(index, 1);
     } else {
       this.coins -= this.storeItems[index].displayedPrize;
       this.storeItems[index].count += 1;
@@ -115,7 +119,7 @@ export class GameComponent implements OnInit {
           item.affordable = false;
         }
 
-        if (this.coins >= item.prize * 0.8) {
+        if (this.coins >= item.prize * 0.8 && item.ugradeNeeded === this.upgradeLevels[item.upgradeFor]) {
           item.isShown = true;
         }
       }

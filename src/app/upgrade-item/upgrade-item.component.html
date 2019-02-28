@@ -1,4 +1,4 @@
-<div class="row upgradeItem"
+<div class="row upgradeItem" *ngIf="isShown"
      [class.item-disabled]="!affordable" [class.item-shown]="isShown && !affordable && !fadedIn"
      [class.item-enabled]="affordable" [class.item-hidden]="!isShown">
   <img src="/assets/{{imgName}}.png" class="upgradeItemImg">
@@ -6,11 +6,11 @@
     <div class="upgradeItemNameBox" style="display: flex; flex-direction: column; align-content: flex-end;">
       <span class="upgradeItemName">{{name}}</span>
       <div>
-        <img src="/assets/coin.png" style="width: 20px;margin-bottom: 2px;"> <span class="upgradeItemCost">{{prize | number}}</span>
+        <img src="/assets/coin.png" style="width: 20px;margin-bottom: 2px;">
+        <span class="upgradeItemCost">{{prize | number}}</span>
       </div>
     </div>
     <div>
-      <span class="upgradeItemCount">{{count}}</span>
       <button class="buybtn"
               [class.btn-disabled]="!affordable"
               (click)="onBtnClick()">
